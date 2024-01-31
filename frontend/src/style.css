@@ -1,0 +1,539 @@
+* {
+  box-sizing: border-box;
+  color: #420a42;
+  text-decoration: none;
+  font-family: "Unbounded", sans-serif;
+}
+
+body {
+  background: lavender;
+  margin: 0;
+}
+
+footer {
+  display: flex;
+  background-color: lightpink;
+  flex-direction: column;
+  align-items: center;
+  height: 100;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+header {
+  background-color: lightpink;
+  color: rgba(63, 5, 63, 0.535);
+  display: flex;
+  padding: 0;
+  font-size: 25px;
+  font-weight: bold;
+  height: 90px;
+  gap: 575px;
+}
+
+.brand {
+  display: flex;
+  justify-content: left;
+  margin: 20px;
+  align-items: center;
+}
+
+.brand:hover {
+  text-shadow: 0 0 5px lightpink, 0 0 25px lightpink, 0 0 50px #c803f4,
+    0 0 100px #c803f4;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 17px;
+  list-style: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: lightpink;
+  min-width: 160px;
+  z-index: 1;
+  list-style: none;
+}
+
+.dropdown-title:hover {
+  text-emphasis: underline;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  gap: 4px;
+  padding: 10px;
+  width: 300px;
+}
+
+.nav-item:hover {
+  text-shadow: 0 0 5px lightpink, 0 0 25px lightpink, 0 0 50px #c803f4,
+    0 0 100px #c803f4;
+}
+
+.cart-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.welcome-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#modal {
+  background-color: rgba(190, 162, 229, 0.774);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#modal > div {
+  background-color: white;
+  max-width: 500px;
+  padding: 15px;
+  text-align: center;
+  border-radius: 30px;
+  background: #faeff0;
+}
+
+#modal .buttons button {
+  /*display: inline-block; */
+  margin-right: 15px;
+}
+
+.page-titles {
+  text-align: center;
+  font-size: 60px;
+  background-image: url("./images/sunsetSlice1.png");
+  background-size: cover;
+}
+
+.products {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  grid-column-gap: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+.add-to-cart-button {
+  align-self: end;
+  cursor: pointer;
+  background: transparent;
+  border-color: #420a42;
+  border-style: solid;
+  height: 7%;
+}
+
+.add-to-cart-button:hover {
+  color: lavender;
+  background-color: #420a42;
+}
+
+.product-tile {
+  justify-self: center;
+}
+
+.product-tile-hover {
+  align-self: start;
+}
+
+.product-tile-hover:hover .product-image {
+  background-color: rgba(213, 207, 207, 0.783);
+  opacity: 60%;
+}
+
+.product-tile-hover:hover .learn-more {
+  visibility: visible;
+}
+
+.learn-more {
+  visibility: hidden;
+}
+
+.product-image {
+  height: 300px;
+  width: 300px;
+}
+
+.shop-products {
+  padding: 10px;
+}
+
+.welcome-products {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.welcome-product:hover {
+  text-shadow: 0 0 5px lightpink, 0 0 25px lightpink, 0 0 50px #c803f4,
+    0 0 100px #c803f4;
+}
+
+button {
+  font-family: "Unbounded", sans-serif;
+  /* display: grid; */
+}
+
+.details-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    "image image . ."
+    "image image title title"
+    "image image price price"
+    "image image description description"
+    "image image cart cart"
+    "image image . .";
+}
+
+.details-image {
+  grid-area: image;
+  height: 90%;
+  width: 95%;
+
+  align-self: center;
+  justify-self: right;
+}
+
+.details-title {
+  grid-area: title;
+  place-self: center;
+  font-size: 40px;
+}
+
+.details-description {
+  grid-area: description;
+  align-self: top;
+  justify-self: center;
+  text-align: center;
+}
+
+.details-price {
+  grid-area: price;
+  align-self: top;
+  justify-self: center;
+}
+
+.details-cart {
+  grid-area: cart;
+  align-self: center;
+}
+
+.details-cart-styling {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr 0.2fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  grid-template-areas: ". minus amount plus . add add add .";
+}
+
+.details-plus {
+  grid-area: plus;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  border-left: none;
+}
+
+.details-amount {
+  grid-area: amount;
+  background: transparent;
+  border-top: #420a42 solid 2px;
+  border-bottom: #420a42 solid 2px;
+}
+
+.details-minus {
+  grid-area: minus;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  border-right: none;
+  font-weight: 1000;
+}
+
+.details-add-to-cart-button {
+  grid-area: add;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  font-size: 110%;
+}
+
+.details-add-to-cart-button:hover {
+  color: lavender;
+  background-color: #420a42;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.return-home:hover {
+  text-shadow: 0 0 5px lightpink, 0 0 25px lightpink, 0 0 50px #c803f4,
+    0 0 100px #c803f4;
+}
+
+.cart-product {
+  display: flex;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    "image image title title"
+    "image image title title"
+    "image image description description"
+    "image image description description"
+    "image image price price"
+    "image image cart cart"; */
+}
+.cart-product-image {
+  height: 15%;
+  width: 10%;
+}
+
+.cart-product-name {
+  grid-area: name;
+}
+
+.cart-product-price {
+  grid-area: price;
+}
+
+.cart-product-buttons {
+  grid-area: buttons;
+}
+
+.cart-product-plus {
+  grid-area: plus;
+}
+
+.cart-product-quantity {
+  grid-area: quantity;
+}
+
+.cart-product-minus {
+  grid-area: minus;
+}
+
+.cart-product-buttons-styling {
+  display: flex;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  grid-template-areas: "minus amount plus";
+  border: #420a42 solid 0.1px; */
+}
+
+.cart-product-remove {
+  grid-area: remove-button;
+}
+
+.sign-in-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(6, 1fr);
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "image title"
+    "image form"
+    "image form"
+    "image break"
+    "image new"
+    "image create";
+}
+
+.sign-in-image {
+  grid-area: image;
+  height: 100%;
+  width: 100%;
+}
+
+.sign-in-form {
+  grid-area: form;
+}
+
+.sign-in-form input {
+  margin: 20px 0;
+  width: 95%;
+  padding: 12px;
+  margin-right: 10px;
+  border: 2px solid #420a42;
+  background-color: lavender;
+}
+
+.sign-in-title {
+  grid-area: title;
+  place-self: center;
+}
+
+.sign-in-button {
+  grid-area: signin;
+  width: 80%;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  font-size: 110%;
+  padding: 10px;
+  margin: 0px auto;
+  margin-top: 20px;
+  display: grid;
+}
+
+.sign-in-button:hover {
+  color: lavender;
+  background-color: #420a42;
+}
+
+.sign-in-divider {
+  grid-area: break;
+  align-self: center;
+  width: 95%;
+  border: 1px solid #420a42;
+}
+
+.sign-in-new {
+  grid-area: new;
+  align-self: start;
+  justify-self: center;
+  text-align: center;
+}
+
+.sign-in-create {
+  grid-area: create;
+  width: 80%;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  font-size: 110%;
+  padding: 10px;
+  margin: 0px auto;
+  display: grid;
+}
+
+.sign-in-create:hover {
+  color: lavender;
+  background-color: #420a42;
+}
+
+.register-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 0.5fr 0.5fr;
+  /* grid-template-rows: repeat(6, 1fr); */
+  grid-column-gap: 20px;
+  grid-template-areas:
+    "image title"
+    "image form"
+    "image form"
+    "image form"
+    "image button"
+    "image go-back";
+}
+
+.register-image {
+  grid-area: image;
+  height: 100%;
+  width: 100%;
+}
+
+.register-form {
+  grid-area: form;
+}
+
+.register-form input {
+  margin: 20px 0;
+  width: 95%;
+  padding: 12px;
+  margin-right: 10px;
+  border: 2px solid #420a42;
+  background-color: lavender;
+}
+
+.register-title {
+  grid-area: title;
+  place-self: center;
+}
+
+/* .register-button {
+  grid-area: button;
+  width: 80%;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  font-size: 110%;
+  padding: 10px;
+  margin: 0px auto;
+  margin-top: 20px;
+  display: grid;
+} */
+
+.register-button {
+  grid-area: button;
+  width: 80%;
+  background: transparent;
+  cursor: pointer;
+  border: #420a42 solid 2px;
+  font-size: 110%;
+  padding: 10px;
+  margin: 0px auto;
+  display: grid;
+  margin-top: 15px;
+}
+
+.register-button:hover {
+  color: lavender;
+  background-color: #420a42;
+}
+
+.register-go-back {
+  grid-area: go-back;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  font-size: 110%;
+  margin-top: 83px;
+}
+
+.register-go-back:hover {
+  text-decoration: underline;
+}
