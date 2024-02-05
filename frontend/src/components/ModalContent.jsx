@@ -31,8 +31,9 @@ const ModalContent = () => {
   };
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
+    <div className="cart-content-inner">
+      <h1 className="cart-title">Shopping Cart</h1>
+      <hr className="cart-title-divider" />
       {productsCount > 0 ? (
         <>
           {cart.items.map((currentProduct, idx) => (
@@ -42,13 +43,21 @@ const ModalContent = () => {
               quantity={currentProduct.quantity}
             ></CartProduct>
           ))}
-
-          <h1>Total: {cart.getTotalCost().toFixed(2)}</h1>
-
-          <button onClick={() => checkout()}>Continue to checkout</button>
+          <div className="cart-bottom">
+            <hr className="cart-divider-total" />
+            <div className="cart-total">
+              <h1 className="cart-total-1">Total</h1>
+              <h1 className="cart-total-2">
+                ${cart.getTotalCost().toFixed(2)}
+              </h1>
+            </div>
+            <button className="checkout-button" onClick={() => checkout()}>
+              Continue to checkout
+            </button>
+          </div>
         </>
       ) : (
-        <h1>Your cart is currently empty!</h1>
+        <h1 className="empty-cart">Your cart is currently empty!</h1>
       )}
     </div>
   );

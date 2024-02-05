@@ -30,7 +30,7 @@ const NavBar = () => {
         </ul>
       </li>
       <Link to="/sign-in">
-        <li className="nav-item">Sign in</li>
+        <li className="nav-item sign-in">Sign in</li>
       </Link>
       <li>
         <button
@@ -43,10 +43,13 @@ const NavBar = () => {
         {showModal ? (
           <>
             <Modal>
+              <button
+                className="cart-close-button"
+                onClick={() => setShowModal(false)}
+              >
+                X
+              </button>
               <ModalContent />
-              <div className="close-button">
-                <button onClick={() => setShowModal(false)}>X</button>
-              </div>
             </Modal>
           </>
         ) : null}

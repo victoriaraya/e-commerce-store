@@ -22,7 +22,9 @@ app.post("/signin", signin);
 
 //check later
 app.use((err, req, res, next) => {
-  if (err.type === "auth") {
+  if (err.meta.target === "User_email_key") {
+    res.status(406).json({ messgae: "email already registered" });
+  } else if (err.type === "auth") {
     res.satus(401).json({ message: "unauthorized" });
   } else if (err.type === "input") {
     console.log(err);

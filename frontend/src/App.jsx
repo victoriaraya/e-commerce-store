@@ -14,6 +14,7 @@ import SignIn from "./pages/SIgnIn";
 import Register from "./pages/Register";
 import WelcomeNewUser from "./pages/WelcomeNewUser";
 import WelcomeBack from "./pages/WelcomeBack";
+import Discount from "./pages/Discount";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/welcome" element={<WelcomeNewUser />} />
           <Route path="/welcome-back" element={<WelcomeBack />} />
+          <Route path="/discount" element={<Discount />} />
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
           <Route path="/not-found" element={<NotFound />} />

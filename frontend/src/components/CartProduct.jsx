@@ -20,6 +20,7 @@ const CartProduct = (props) => {
           src={`../images/${productNameForImgTag}.jpg`}
           alt={productData.name}
         />
+
         <h3 className="cart-product-name">{productData.name}</h3>
         <p className="cart-product-price">${productData.price}</p>
         <div className="cart-product-buttons cart-product-buttons-styling">
@@ -29,21 +30,21 @@ const CartProduct = (props) => {
           >
             +
           </button>
-          <p className="cart-product-quantity">{quantity}</p>
+          <div className="cart-product-quantity">{quantity}</div>
           <button
             className="cart-product-minus"
             onClick={() => (quantity > 1 ? cart.removeOneFromCart(id) : null)}
           >
             -
           </button>
+          <button
+            className="cart-product-remove"
+            onClick={() => cart.deleteFromCart(id)}
+          >
+            Remove
+          </button>
         </div>
-        <button
-          className="cart-product-remove"
-          onClick={() => cart.deleteFromCart(id)}
-        >
-          Remove
-        </button>
-        <hr />
+        <hr className="cart-product-divider" />
       </div>
     </>
   );

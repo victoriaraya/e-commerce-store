@@ -6,6 +6,7 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const [controlShow, setControlShow] = useState({ active: "no" });
 
   const navigate = useNavigate();
 
@@ -18,6 +19,21 @@ const SignIn = () => {
       body: JSON.stringify(signInParams),
     });
   };
+
+  const togglePassword = () => {
+    controlShow.active === "yes"
+      ? setControlShow({ active: "no" })
+      : setControlShow({ active: "yes" });
+    const pass = document.getElementById("password");
+    if (pass.type === "password") {
+      pass.type = "text";
+    } else {
+      pass.type = "password";
+    }
+  };
+
+  const toggle =
+    document.getElementById("password")?.value.length > 0 ? "visible" : "";
 
   return (
     <div className="sign-in-page">
@@ -34,20 +50,37 @@ const SignIn = () => {
         <label htmlFor="email">
           Email
           <input
+            type="email"
             name="email"
             id="email"
             placeholder="Email"
             required={true}
-            onChange={(e) =>
+            onChange={(e) => {
               setSignInParams({
                 ...signInParams,
                 email: e.target.value,
-              })
-            }
+              });
+            }}
           />
         </label>
+
         <label htmlFor="password">
           Password
+          <i
+            className={"password-toggle fa-regular fa-eye" + " " + toggle} //
+            id="password-toggle"
+            onClick={() => {
+              togglePassword();
+            }}
+          ></i>
+          <i
+            onClick={togglePassword}
+            className={
+              controlShow.active === "yes"
+                ? "fa-regular fa-eye-slash password-toggle-slash visible"
+                : "fa-regular fa-eye-slash password-toggle-slash"
+            }
+          ></i>
           <input
             type="password"
             name="password"

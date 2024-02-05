@@ -29,8 +29,8 @@ const ProductTile = (props) => {
             alt={product.name}
           />
           <div className="learn-more">Learn more</div>
-          <h1>{product.name}</h1>
-          <h2>${product.price}</h2>
+          <h1 className="product-name">{product.name}</h1>
+          <h2 className="product-price">${product.price}</h2>
         </Link>
       </div>
       <button className="add-to-cart-button" onClick={handleClick}>
@@ -40,8 +40,13 @@ const ProductTile = (props) => {
         <>
           <Modal>
             <ModalContent />
-            <div className="close-button">
-              <button onClick={() => setShowModal(false)}>X</button>
+            <div>
+              <button
+                className="close-button"
+                onClick={() => setShowModal(false)}
+              >
+                X
+              </button>
             </div>
           </Modal>
         </>
