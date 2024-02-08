@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignIn } from "../contexts/SignInContext";
 
 const SignIn = () => {
   const [signInParams, setSignInParams] = useState({
@@ -7,17 +8,49 @@ const SignIn = () => {
     password: "",
   });
   const [controlShow, setControlShow] = useState({ active: "no" });
-
+  const [errorMessage, setErrorMessage] = useState("");
+  const { updateSignInStatus } = useSignIn();
   const navigate = useNavigate();
 
   const signInUser = async (signInParams) => {
-    await fetch("http://localhost:4000/signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signInParams),
-    });
+    try {
+      const response = await fetch("http://localhost:4000/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signInParams),
+      });
+
+      if (!response.ok) {
+        if (response.status === 401) {
+          document.getElementById("password").value = "";
+          setErrorMessage(
+            errorMessage === "Incorrect password. Please try again."
+              ? "Incorrect password. Please try again. "
+              : "Incorrect password. Please try again."
+          );
+        } else if (response.status === 400) {
+          document.getElementById("email").value = "";
+          setErrorMessage(
+            errorMessage === "Email not registered."
+              ? "Email not registered. "
+              : "Email not registered."
+          );
+        }
+      } else {
+        const data = await response.json();
+        const token = data.token;
+        let name = data.name;
+        localStorage.setItem("token", token);
+        localStorage.setItem("name", name);
+        updateSignInStatus(true);
+        navigate("/welcome-back");
+      }
+    } catch (e) {
+      console.error("Error during register:", e);
+      setErrorMessage("An error occurred. Please try again later.");
+    }
   };
 
   const togglePassword = () => {
@@ -35,6 +68,12 @@ const SignIn = () => {
   const toggle =
     document.getElementById("password")?.value.length > 0 ? "visible" : "";
 
+  const hidePassword =
+    document.getElementById("password")?.value.length > 0 ? "hide" : "";
+
+  const hideEmail =
+    document.getElementById("email")?.value.length > 0 ? "hide" : "";
+
   return (
     <div className="sign-in-page">
       <img className="sign-in-image" src="./images/sunset.png" alt="sunset" />
@@ -44,7 +83,6 @@ const SignIn = () => {
         onSubmit={(e) => {
           e.preventDefault();
           signInUser(signInParams);
-          //navigate("/welcome-back");
         }}
       >
         <label htmlFor="email">
@@ -62,12 +100,17 @@ const SignIn = () => {
               });
             }}
           />
+          {errorMessage.includes("Email") && (
+            <p className={"register-error-message" + " " + hideEmail}>
+              {errorMessage}
+            </p>
+          )}
         </label>
 
         <label htmlFor="password">
           Password
           <i
-            className={"password-toggle fa-regular fa-eye" + " " + toggle} //
+            className={"password-toggle fa-regular fa-eye" + " " + toggle}
             id="password-toggle"
             onClick={() => {
               togglePassword();
@@ -94,6 +137,11 @@ const SignIn = () => {
               })
             }
           />
+          {errorMessage.includes("password") && (
+            <p className={"register-error-message" + " " + hidePassword}>
+              {errorMessage}
+            </p>
+          )}
         </label>
         <button className="sign-in-button">Sign In</button>
       </form>

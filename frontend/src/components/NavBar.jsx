@@ -1,12 +1,20 @@
 import { Link } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Modal from "./Modal";
 import { CartContext } from "../contexts/CartContext";
 import ModalContent from "./ModalContent";
+import { useSignIn } from "../contexts/SignInContext";
 
 const NavBar = () => {
   const cart = useContext(CartContext);
   const [showModal, setShowModal] = useState(false);
+  const { isUserSignedIn } = useSignIn();
+  const { updateSignInStatus } = useSignIn();
+
+  const handleSignOut = () => {
+    localStorage.clear();
+    updateSignInStatus(false);
+  };
 
   const productsCount = cart.items.reduce(
     (sum, product) => sum + product.quantity,
@@ -29,9 +37,23 @@ const NavBar = () => {
           </li>
         </ul>
       </li>
-      <Link to="/sign-in">
-        <li className="nav-item sign-in">Sign in</li>
-      </Link>
+      {isUserSignedIn ? (
+        <Link to="/sign-out">
+          <li
+            id="sign-out"
+            className="nav-item sign-out"
+            onClick={handleSignOut}
+          >
+            Sign out
+          </li>
+        </Link>
+      ) : (
+        <Link to="/sign-in">
+          <li id="sign-in" className="nav-item sign-in">
+            Sign in
+          </li>
+        </Link>
+      )}
       <li>
         <button
           className="nav-item cart-button"

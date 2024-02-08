@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignIn } from "../contexts/SignInContext";
 
 const Register = () => {
   const [registerParams, setRegisterParams] = useState({
@@ -10,7 +11,7 @@ const Register = () => {
   });
   const [controlShow, setControlShow] = useState({ active: "no" });
   const [errorMessage, setErrorMessage] = useState("");
-
+  const { updateSignInStatus } = useSignIn();
   const navigate = useNavigate();
 
   const registerUser = async (registerParams) => {
@@ -34,26 +35,19 @@ const Register = () => {
           );
         }
       } else {
-        // save token in local storage
+        const data = await response.json();
+        const token = data.token;
+        let name = data.name;
+        localStorage.setItem("token", token);
+        localStorage.setItem("name", name);
+        updateSignInStatus(true);
         navigate("/welcome");
       }
     } catch (e) {
       console.error("Error during register:", e);
       setErrorMessage("An error occurred. Please try again later.");
     }
-  }; //
-
-  // const registerUser = async (registerParams) => {
-  //   await fetch("http://localhost:4000/user", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(registerParams),
-  //   }).then((res) => {
-  //     return res.status;
-  //   });
-  // };
+  };
 
   const togglePassword = () => {
     controlShow.active === "yes"

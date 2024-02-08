@@ -14,44 +14,49 @@ import SignIn from "./pages/SIgnIn";
 import Register from "./pages/Register";
 import WelcomeNewUser from "./pages/WelcomeNewUser";
 import WelcomeBack from "./pages/WelcomeBack";
-import Discount from "./pages/Discount";
+import SignOut from "./pages/SignOut";
+import SignInProvider from "./contexts/SignInContext";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <CartProvider>
-        <header>
-          <Link to="/" className="brand">
-            Victoria's Shop
-          </Link>
-          <NavBar />
-        </header>
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/details/:id" element={<Details />} />
-          <Route path="/wellness" element={<Wellness />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/hobbies" element={<Hobbies />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/welcome" element={<WelcomeNewUser />} />
-          <Route path="/welcome-back" element={<WelcomeBack />} />
-          <Route path="/discount" element={<Discount />} />
-          <Route path="/success" element={<Success />} />
-          <Route path="/cancel" element={<Cancel />} />
-          <Route path="/not-found" element={<NotFound />} />
-          <Route path="*" element={<Navigate to="/not-found" />} />
-        </Routes>
-        <footer>
-          <div className="footer">
-            <h5 className="disclaimer">
-              💖 This website is just for fun and the products here are not
-              actually available to buy 💖
-            </h5>
-            <h5 className="made-by">Made by Victoria Raya</h5>
+      <SignInProvider>
+        <CartProvider>
+          <header>
+            <Link to="/" className="brand">
+              Victoria's Shop
+            </Link>
+            <NavBar />
+          </header>
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Welcome />} />
+              <Route path="/details/:id" element={<Details />} />
+              <Route path="/wellness" element={<Wellness />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/hobbies" element={<Hobbies />} />
+              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/sign-out" element={<SignOut />} />
+              <Route path="/welcome" element={<WelcomeNewUser />} />
+              <Route path="/welcome-back" element={<WelcomeBack />} />
+              <Route path="/success" element={<Success />} />
+              <Route path="/cancel" element={<Cancel />} />
+              <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/not-found" />} />
+            </Routes>
           </div>
-        </footer>
-      </CartProvider>
+          <footer className="footer">
+            <div>
+              <h5 className="disclaimer">
+                💖 This website is just for fun and the products here are not
+                actually available to buy 💖
+              </h5>
+              <h5 className="made-by">Made by Victoria Raya</h5>
+            </div>
+          </footer>
+        </CartProvider>
+      </SignInProvider>
     </BrowserRouter>
   );
 };
