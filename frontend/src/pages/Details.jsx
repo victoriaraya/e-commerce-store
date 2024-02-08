@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { getProductData } from "../../../backend/src/storeProducts";
 import Modal from "../components/Modal";
@@ -57,13 +57,21 @@ const Details = () => {
           <>
             <Modal>
               <ModalContent />
-              <div className="close-button">
-                <button onClick={() => setShowModal(false)}>X</button>
+              <div>
+                <button
+                  className="close-button"
+                  onClick={() => setShowModal(false)}
+                >
+                  X
+                </button>
               </div>
             </Modal>
           </>
         ) : null}
       </div>
+      <button className="details-go-back">
+        <Link to={`/${product.category}`}>← Go back</Link>
+      </button>
     </div>
   );
 };

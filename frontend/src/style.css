@@ -189,25 +189,6 @@ header {
   background-color: #420a42;
 }
 
-/* .product-tile {
-  display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  grid-template-areas:
-    "image"
-    "image"
-    "name"
-    "price"
-    "add";
-} */
-
-/* .product-price {
-  grid-area: price;
-} */
-
-/* .product-name {
-  grid-area: name;
-} */
-
 .product-tile-hover {
   align-self: start;
 }
@@ -257,6 +238,7 @@ button {
 
 .details-content {
   display: grid;
+  text-align: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(6, 1fr);
   grid-template-areas:
@@ -265,14 +247,27 @@ button {
     "image image price price"
     "image image description description"
     "image image cart cart"
-    "image image . .";
+    "image image go-back go-back";
+}
+
+.details-go-back {
+  display: grid;
+  grid-area: go-back;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  font-size: 100%;
+  margin-top: 83px;
+}
+
+.details-go-back:hover {
+  text-decoration: underline;
 }
 
 .details-image {
   grid-area: image;
   height: 90%;
   width: 95%;
-
   align-self: center;
   justify-self: right;
 }

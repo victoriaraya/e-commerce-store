@@ -5,6 +5,7 @@ const productsArray = [
     price: 44.44,
     description:
       "Embrace the power of sound. Enjoy the luxury of sound healing anytime!",
+    category: "wellness",
   },
   {
     id: "price_1Oc0W9FmHegk4vVaDTSyhfef",
@@ -12,6 +13,7 @@ const productsArray = [
     price: 25.55,
     description:
       "Enjoy the benefits of whatever essential oil you choose. A treat for your senses.",
+    category: "wellness",
   },
   {
     id: "price_1Oc0Z8FmHegk4vVasIR1RpTs",
@@ -19,6 +21,7 @@ const productsArray = [
     price: 22.22,
     description:
       "Use this ancient practice to promote circulation and healthy, youthful skin. Comes with a smooth tool and roller.",
+    category: "wellness",
   },
   {
     id: "price_1Oc0umFmHegk4vVakbsuGRyH",
@@ -26,6 +29,7 @@ const productsArray = [
     price: 105.55,
     description:
       "Every home needs a full length mirror! High quality glass and easy installation.",
+    category: "home",
   },
   {
     id: "price_1Oc0cRFmHegk4vVam2zdI5Wo",
@@ -33,6 +37,7 @@ const productsArray = [
     price: 99.99,
     description:
       "Enjoy music from anywhere in your home. Perfect for solo dance parties!",
+    category: "home",
   },
   {
     id: "price_1Oc0vrFmHegk4vVaxlRn97Ni",
@@ -40,6 +45,7 @@ const productsArray = [
     price: 111.11,
     description:
       "Reduce back pain caused by sitting for long periods of time! Adjustable height, cup holder, headphone hook and easy assembly.",
+    category: "home",
   },
   {
     id: "price_1Oc0wgFmHegk4vVaz3EJDZ28",
@@ -47,6 +53,7 @@ const productsArray = [
     price: 177.77,
     description:
       "Tap into your musical side. Perfect for beginners with 80 song demonstrations.",
+    category: "hobbies",
   },
   {
     id: "price_1Oc0xIFmHegk4vVasNynZJhN",
@@ -54,6 +61,7 @@ const productsArray = [
     price: 255.55,
     description:
       "You'll be making your own clothes in no time! Built-in needle threader, 180 stitch applications and adjustable stitch length and width.",
+    category: "hobbies",
   },
   {
     id: "price_1Oc0y1FmHegk4vVakkodbWwl",
@@ -61,6 +69,7 @@ const productsArray = [
     price: 33.33,
     description:
       "Get the perfect fit for your sewing creations. Durable, adjustable height and pinnable.",
+    category: "hobbies",
   },
 ];
 

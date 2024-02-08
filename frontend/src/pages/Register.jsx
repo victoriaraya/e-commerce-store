@@ -131,7 +131,7 @@ const Register = () => {
         <label htmlFor="password">
           Password
           <i
-            className={"password-toggle fa-regular fa-eye" + " " + toggle} //
+            className={"password-toggle fa-regular fa-eye" + " " + toggle}
             id="password-toggle"
             onClick={() => {
               togglePassword();
