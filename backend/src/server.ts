@@ -23,7 +23,7 @@ app.use("/discount", protect, displayDiscount);
 
 //check later
 app.use((err, req, res, next) => {
-  if (err.meta.target === "User_email_key") {
+  if (err.meta?.target === "User_email_key") {
     res.status(406).json({ messgae: "email already registered" });
   } else if (res.json.message === "not valid password") {
     res.status(401).json({ message: "not valid password" });
