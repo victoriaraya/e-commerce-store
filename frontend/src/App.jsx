@@ -10,7 +10,7 @@ import NavBar from "./components/NavBar";
 import NotFound from "./components/NotFound";
 import Success from "./pages/Success";
 import Cancel from "./pages/Cancel";
-import SignIn from "./pages/SIgnIn";
+import SignIn from "./pages/SignIn";
 import Register from "./pages/Register";
 import WelcomeNewUser from "./pages/WelcomeNewUser";
 import WelcomeBack from "./pages/WelcomeBack";
