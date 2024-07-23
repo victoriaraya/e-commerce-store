@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import makeAuthenticatedRequest from "../../utils/makeAuthenticatedRequest";
+import sunsetImage from "/images/sunset.png";
 
 const WelcomeNewUser = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -55,11 +56,7 @@ const WelcomeNewUser = () => {
           <p>Enter your code after you continue to checkout for 15% off 💖</p>
         </div>
       ) : null}
-      <img
-        className="welcome-new-image"
-        src="./images/sunset.png"
-        alt="sunset"
-      />
+      <img className="welcome-new-image" src={sunsetImage} alt="sunset" />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignIn } from "../contexts/SignInContext";
+import sunsetImage from "/images/sunset.png";
 
 const Register = () => {
   const [registerParams, setRegisterParams] = useState({
@@ -68,7 +69,7 @@ const Register = () => {
 
   return (
     <div className="register-page">
-      <img className="register-image" src="./images/sunset.png" alt="sunset" />
+      <img className="register-image" src={sunsetImage} alt="sunset" />
       <h1 className="register-title">Register</h1>
       <form
         className="register-form"

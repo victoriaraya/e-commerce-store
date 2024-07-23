@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import welcomeImage from "/images/welcome.png";
+import soundBowlImage from "/images/soundbowl.jpg";
+import mirrorImage from "/images/fulllengthmirror.jpg";
+import pianoImage from "/images/keyboardpiano.jpg";
 
 const Welcome = () => {
   return (
@@ -11,7 +14,7 @@ const Welcome = () => {
           <section className="welcome-product">
             <img
               className="product-image"
-              src="../images/soundbowl.jpg"
+              src={soundBowlImage}
               alt="sound bowl"
             />
             <h2>Wellness</h2>
@@ -19,11 +22,7 @@ const Welcome = () => {
         </Link>
         <Link to="/home">
           <section className="welcome-product">
-            <img
-              className="product-image"
-              src="../images/fulllengthmirror.jpg"
-              alt="mirror"
-            />
+            <img className="product-image" src={mirrorImage} alt="mirror" />
             <h2>Home</h2>
           </section>
         </Link>
@@ -31,7 +30,7 @@ const Welcome = () => {
           <section className="welcome-product">
             <img
               className="product-image"
-              src="../images/keyboardpiano.jpg"
+              src={pianoImage}
               alt="keyboard piano"
             />
             <h2>Hobbies</h2>

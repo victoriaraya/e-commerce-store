@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignIn } from "../contexts/SignInContext";
+import sunsetImage from "/images/sunset.png";
 
 const SignIn = () => {
   const [signInParams, setSignInParams] = useState({
@@ -76,7 +77,7 @@ const SignIn = () => {
 
   return (
     <div className="sign-in-page">
-      <img className="sign-in-image" src="./images/sunset.png" alt="sunset" />
+      <img className="sign-in-image" src={sunsetImage} alt="sunset" />
       <h1 className="sign-in-title">Sign in</h1>
       <form
         className="sign-in-form"
