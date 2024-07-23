@@ -3,7 +3,7 @@ import fulllengthmirror from "/images/fulllengthmirror.jpg";
 import guashaset from "/images/guashaset.jpg";
 import keyboardpiano from "/images/keyboardpiano.jpg";
 import mannequin from "/images/mannequin.jpg";
-import sewingmachine from "images/sewingmachine.jpg";
+import sewingmachine from "/images/sewingmachine.jpg";
 import soundbowl from "/images/soundbowl.jpg";
 import speaker from "/images/speaker.jpg";
 import standingdesk from "/images/standingdesk.jpg";
