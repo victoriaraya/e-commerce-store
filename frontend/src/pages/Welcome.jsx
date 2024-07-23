@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Welcome = () => {
   return (
     <div className="welcome">
-      <img className="welcome-image" src="/welcome.png" alt="welcome" />
+      <img className="welcome-image" src="./images/welcome.png" alt="welcome" />
       <h2 className="shop-products">Shop our products ✨</h2>
       <section className="welcome-products">
         <Link to="/wellness">
