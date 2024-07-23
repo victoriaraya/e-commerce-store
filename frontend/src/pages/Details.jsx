@@ -4,7 +4,7 @@ import { CartContext } from "../contexts/CartContext";
 import { getProductData } from "../../../backend/src/storeProducts";
 import Modal from "../components/Modal";
 import ModalContent from "../components/ModalContent";
-import essentialoildiffuser from "/images/essentialoildiffuser.jpg";
+import images from "../productImages";
 
 const Details = () => {
   const { id } = useParams();
@@ -32,7 +32,7 @@ const Details = () => {
       </div>
       <img
         className="details-image"
-        src={productNameForImgTag}
+        src={images[productNameForImgTag]}
         alt={product.name}
       />
       <div className="details-cart details-cart-styling">

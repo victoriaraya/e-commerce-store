@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { getProductData } from "../../../backend/src/storeProducts";
+import images from "../productImages";
 
 const CartProduct = (props) => {
   const cart = useContext(CartContext);
@@ -17,7 +18,7 @@ const CartProduct = (props) => {
       <div className="cart-product">
         <img
           className="cart-product-image"
-          src={`../images/${productNameForImgTag}.jpg`}
+          src={images[productNameForImgTag]}
           alt={productData.name}
         />
 

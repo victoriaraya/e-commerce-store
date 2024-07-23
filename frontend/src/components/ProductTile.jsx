@@ -3,6 +3,7 @@ import { CartContext } from "../contexts/CartContext";
 import Modal from "./Modal";
 import ModalContent from "./ModalContent";
 import { Link } from "react-router-dom";
+import images from "../productImages";
 
 const ProductTile = (props) => {
   const product = props.product;
@@ -25,7 +26,7 @@ const ProductTile = (props) => {
         <Link to={`/details/${product.id}`}>
           <img
             className="product-image"
-            src={`../images/${productNameForImgTag}.jpg`}
+            src={images[productNameForImgTag]}
             alt={product.name}
           />
           <div className="learn-more">Learn more</div>
