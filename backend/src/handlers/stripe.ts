@@ -14,8 +14,8 @@ export const stripeCheckout = async (req, res) => {
     line_items: lineItems,
     mode: "payment",
     allow_promotion_codes: true,
-    success_url: "http://localhost:5173/success",
-    cancel_url: "http://localhost:5173/cancel",
+    success_url: "/success",
+    cancel_url: "/cancel",
   });
 
   res.send(
