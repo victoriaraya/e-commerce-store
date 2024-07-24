@@ -9,9 +9,7 @@ const WelcomeBack = () => {
 
   const handleClick = async () => {
     try {
-      const url = `http://localhost:4000/discount/${localStorage.getItem(
-        "name"
-      )}`;
+      const url = `/api/discount/${localStorage.getItem("name")}`;
       const options = {
         method: "GET",
       };

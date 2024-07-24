@@ -9,7 +9,7 @@ const WelcomeNewUser = () => {
 
   const handleClick = async () => {
     try {
-      const url = `api/discount/${localStorage.getItem("name")}`;
+      const url = `/api/discount/${localStorage.getItem("name")}`;
       const options = {
         method: "GET",
       };

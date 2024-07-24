@@ -13,7 +13,7 @@ const ModalContent = () => {
   );
 
   const checkout = async () => {
-    await fetch("api/checkout", {
+    await fetch("/api/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
