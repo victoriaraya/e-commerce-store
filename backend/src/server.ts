@@ -7,19 +7,20 @@ import { displayDiscount } from "./handlers/discount";
 import { protect } from "./modules/auth";
 
 const app = express();
+const apiRouter = express.Router();
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api", apiRouter);
 
-app.post("/checkout", stripeCheckout);
+apiRouter.post("/checkout", stripeCheckout);
+apiRouter.post("/user", createNewUser);
+apiRouter.post("/signin", signin);
 
-app.post("/user", createNewUser);
-app.post("/signin", signin);
-
-app.use("/discount", protect, displayDiscount);
+apiRouter.use("/discount", protect, displayDiscount);
 
 //check later
 app.use((err, req, res, next) => {
