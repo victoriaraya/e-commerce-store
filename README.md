@@ -1,5 +1,7 @@
 # Victoria's Shop
 
+https://victoriashop.fun
+
 ## Description
 
 Victoria's Shop is an e-commerce website I built from scratch using React and Express, integrating the Stripe API to handle payment. This is the first major project I built independently, with the intention of getting more experience with React, REST API design, working with databases, authentication, properly integrating third-party APIs and CSS. I thought making my own cute shop 'selling' products I'm actually interested in would be a fun way to do that and it definitely was.
@@ -8,7 +10,7 @@ In building this project I learnt a lot about working with react, like properly 
 
 ## Demo
 
-<img src="./frontend/src/images/victoriashop.gif" alt="Victoria's Shop GIF" width="500" height="300">
+<img src="./frontend/src/images/victoriashop.gif" alt="Victoria's Shop GIF" width="600" height="400">
 
 
 ## Tech Stack
