@@ -10,7 +10,7 @@ In building this project I learnt a lot about working with react, like properly 
 
 ## Demo
 
-<img src="./frontend/src/images/victoriashop.gif" alt="Victoria's Shop GIF" width="600" height="400">
+![Victoria's Shop GIF](https://github.com/victoriaraya/e-commerce-store/blob/main/frontend/src/images/victoriashop.gif?raw=true)
 
 
 ## Tech Stack
